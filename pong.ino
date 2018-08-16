@@ -20,13 +20,12 @@ int ballX = 3;
 int ballY = 3;
 int ballRadius = 2;
 int ballDiameter = 4;
-int ballSpeed = 1;
+int speed = 1;
 bool ballRight = true;
 bool ballDown = true;
 
 int paddleWidth = 4;
-int paddleHeight = 9;
-int playerSpeed = 1;
+int paddleHeight = 12;
 int playerX = 2;
 int playerY = 0;
 
@@ -65,18 +64,18 @@ void loop()
 		arduboy.fillCircle(ballX, ballY, ballRadius, WHITE);
 		if (ballRight == true)
 		{
-			ballX = ballX + ballSpeed;
+			ballX = ballX + speed;
 		} else
 		{
-			ballX = ballX - ballSpeed;
+			ballX = ballX - speed;
 		}
 
 		if (ballDown == true)
 		{
-			ballY = ballY + ballSpeed;
+			ballY = ballY + speed;
 		} else
 		{
-			ballY = ballY - ballSpeed;
+			ballY = ballY - speed;
 		}
 
 		if(ballX == ballRadius + border)
@@ -99,12 +98,12 @@ void loop()
 		arduboy.fillRect(playerX, playerY, paddleWidth, paddleHeight, WHITE);
 		if(arduboy.pressed(UP_BUTTON) && playerY > 0 + border)
 		{
-			playerY = playerY - playerSpeed;
+			playerY = playerY - speed;
 
 		}
 		if(arduboy.pressed(DOWN_BUTTON) && playerY < (HEIGHT - (paddleHeight + border)))
 		{
-			playerY = playerY + playerSpeed;
+			playerY = playerY + speed;
 		}
 
 		if (arduboy.pressed(A_BUTTON) == true && aFresh == true)
